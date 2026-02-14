@@ -1,0 +1,19 @@
+{
+  "name": "zhenhuan-similarity-detector",
+  "version": "1.0.0",
+  "description": "甄嬛传人物相似度检测 - AI 帮你分析长得像剧中的谁",
+  "main": "api/analyze.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "@vercel/node": "^3.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^35.2.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

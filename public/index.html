@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>甄嬛传人物相似度检测</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 装饰元素：背景祥云 -->
+  <div class="clouds">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+  </div>
+
+  <!-- 顶部标题 -->
+  <header class="header">
+    <div class="lantern left">
+      <div class="lantern-body"></div>
+      <div class="lantern-light"></div>
+    </div>
+    <div class="header-content">
+      <h1 class="title">
+        <span class="title-icon">&#127875;</span>
+        甄嬛传人物相似度检测
+        <span class="title-icon">&#127875;</span>
+      </h1>
+      <p class="slogan">"臣妾做不到像TA，但AI可以帮你分析"</p>
+    </div>
+    <div class="lantern right">
+      <div class="lantern-body"></div>
+      <div class="lantern-light"></div>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="main">
+    <!-- 上传区域 -->
+    <section class="upload-section">
+      <div class="upload-area" id="uploadArea">
+        <div class="upload-icon">&#128247;</div>
+        <p class="upload-text">点击或拖拽上传照片</p>
+        <p class="upload-hint">支持批量上传，最多 5 张照片</p>
+        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+      </div>
+
+      <!-- 预览区域 -->
+      <div class="preview-container" id="previewContainer">
+        <div class="preview-grid" id="previewGrid"></div>
+        <button class="clear-btn" id="clearBtn" hidden>&#10005; 清除全部</button>
+      </div>
+    </section>
+
+    <!-- 分析按钮 -->
+    <section class="action-section">
+      <button class="analyze-btn" id="analyzeBtn" disabled>
+        <span class="btn-icon">&#128302;</span>
+        <span class="btn-text">开始分析</span>
+      </button>
+    </section>
+
+    <!-- 加载状态 -->
+    <section class="loading-section" id="loadingSection" hidden>
+      <div class="loading-container">
+        <div class="scanning-line"></div>
+        <div class="loading-text">AI 正在看面相...</div>
+        <div class="loading-hint">小太监正在研墨分析中</div>
+        <div class="loading-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 分析结果 -->
+    <section class="result-section" id="resultSection" hidden>
+      <div class="result-header">
+        <h2 class="result-title">
+          <span class="result-icon">&#127775;</span>
+          分析结果
+          <span class="result-icon">&#127775;</span>
+        </h2>
+        <p class="result-subtitle">&#127919; 你与甄嬛传人物的相似度 &#127919;</p>
+      </div>
+
+      <!-- 结果卡片容器 -->
+      <div class="results-grid" id="resultsGrid"></div>
+    </section>
+  </main>
+
+  <!-- 底部装饰 -->
+  <footer class="footer">
+    <div class="footer-pattern"></div>
+    <p class="footer-text">Powered by 豆包大模型 Doubao Seed</p>
+    <p class="footer-credit">本应用仅供娱乐，如有雷同，纯属缘分</p>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

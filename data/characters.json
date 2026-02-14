@@ -1,0 +1,114 @@
+[
+  {
+    "name": "甄嬛",
+    "avatar": "/images/zhenhuan.jpg",
+    "description": "聪慧隐忍，外柔内刚，大女主本主",
+    "classicLines": ["那年杏花微雨，你说你是果郡王，也许从一开始便是错的"],
+    "tags": ["大女主", "人间清醒", "聪明人", "心机girl", "拽妃"]
+  },
+  {
+    "name": "华妃",
+    "avatar": "/images/huafei.jpg",
+    "description": "嚣张跋扈，个性张扬，拽妃本妃",
+    "classicLines": ["贱人就是矫情", "皇上，你害得世兰好苦啊"],
+    "tags": ["拽妃", "霸气侧漏", "耿直girl", "恋爱脑", "白莲花"]
+  },
+  {
+    "name": "皇后",
+    "avatar": "/images/houfei.jpg",
+    "description": "端庄持重，城府深沉，笑里藏刀",
+    "classicLines": ["臣妾做不到啊", "本宫是皇后"],
+    "tags": ["表面温柔", "内心强大", "管理大师", "绿茶", "心机深沉"]
+  },
+  {
+    "name": "沈眉庄",
+    "avatar": "/images/meixiang.jpg",
+    "description": "清冷傲骨，有原则，清冷美人",
+    "classicLines": ["宁可枝头抱香死，不曾吹落北风中"],
+    "tags": ["清冷美人", "傲骨", "有原则", "淡定", "高级感"]
+  },
+  {
+    "name": "安陵容",
+    "avatar": "/images/anlingrong.jpg",
+    "description": "敏感细腻，自卑要强，敏感小达人",
+    "classicLines": ["安陵容这一生都是不值得的"],
+    "tags": ["敏感小达人", "自卑要强", "心思细腻", "腹黑", "小透明"]
+  },
+  {
+    "name": "果郡王",
+    "avatar": "/images/guojunwang.jpg",
+    "description": "风流倜傥，痴情专一，恋爱脑晚期",
+    "classicLines": ["允礼此生，只愿和甄嬛一人"],
+    "tags": ["恋爱脑", "痴情", "暖男", "备胎", "中央空调"]
+  },
+  {
+    "name": "皇上",
+    "avatar": "/images/huangshang.jpg",
+    "description": "多疑深沉，掌控欲强，大橘行为",
+    "classicLines": ["朕乏了", "皇后，听旨"],
+    "tags": ["大橘", "多疑", "掌控欲", "渣", "自恋"]
+  },
+  {
+    "name": "苏培盛",
+    "avatar": "/images/supeisheng.jpg",
+    "description": "忠诚圆滑，八面玲珑，老油条",
+    "classicLines": ["奴才伺候您来了"],
+    "tags": ["老油条", "最强辅助", "职场标杆", "人精", "贴心小棉袄"]
+  },
+  {
+    "name": "温实初",
+    "avatar": "/images/wenshichu.jpg",
+    "description": "温润如玉，默默付出，备胎战斗机",
+    "classicLines": ["微臣此生，只守护甄嬛一人"],
+    "tags": ["温润如玉", "备胎", "痴情", "暖男", "工具人"]
+  },
+  {
+    "name": "槿汐",
+    "avatar": "/images/jinxi.jpg",
+    "description": "忠诚稳重，智慧过人，最强辅助",
+    "classicLines": ["奴婢伺候小主是天经地义的"],
+    "tags": ["最强辅助", "职场标杆", "智慧", "忠诚", "大姐姐"]
+  },
+  {
+    "name": "流朱",
+    "avatar": "/images/liuzhu.jpg",
+    "description": "活泼忠心，直爽单纯，耿直girl",
+    "classicLines": ["小主，奴婢为您不平"],
+    "tags": ["耿直girl", "头铁", "忠心", "活泼", "直肠子"]
+  },
+  {
+    "name": "浣碧",
+    "avatar": "/images/huanbi.jpg",
+    "description": "心机深沉，渴望认可，野心家",
+    "classicLines": ["我只想让娘亲有个名分"],
+    "tags": ["野心家", "心机girl", "渴望认可", "不甘心", "绿茶"]
+  },
+  {
+    "name": "玉娆",
+    "avatar": "/images/yushao.jpg",
+    "description": "清新脱俗，倔强刚烈，叛逆少女",
+    "classicLines": ["我宁愿嫁与匹夫草草一生"],
+    "tags": ["叛逆少女", "清新脱俗", "倔强", "刚烈", "不将就"]
+  },
+  {
+    "name": "温太医",
+    "avatar": "/images/wentaiyi.jpg",
+    "description": "温润专一，痴情守护，忠犬系",
+    "classicLines": ["微臣对甄嬛之心，天地可鉴"],
+    "tags": ["忠犬系", "痴情", "温润", "守护", "工具人"]
+  },
+  {
+    "name": "淳儿",
+    "avatar": "/images/chun-er.jpg",
+    "description": "天真烂漫，吃货本货，傻白甜",
+    "classicLines": ["臣妾想吃点心"],
+    "tags": ["吃货", "傻白甜", "天真", "可爱", "小萌新"]
+  },
+  {
+    "name": "祺贵人",
+    "avatar": "/images/qigui.jpg",
+    "description": "娇俏跋扈，恃宠而骄，小作精",
+    "classicLines": ["臣妾实名制嫉妒甄嬛"],
+    "tags": ["小作精", "恃宠而骄", "娇俏", "跋扈", "蠢萌"]
+  }
+]
