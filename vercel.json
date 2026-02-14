@@ -7,8 +7,5 @@
       "src": "/api/(.*)",
       "dest": "/api/analyze.js"
     }
-  ],
-  "env": {
-    "DOUBAO_API_KEY": "@doubao-api-key"
-  }
+  ]
 }
