@@ -160,13 +160,23 @@ async function analyzeImages() {
       })
     });
 
-    const data = await response.json();
+    const text = await response.text();
+    console.log('Raw response:', text.substring(0, 500));
+
+    // 检查响应状态
+    if (!response.ok) {
+      throw new Error(`服务器错误 (${response.status}): ${text.substring(0, 100)}`);
+    }
+
+    // 检查是否返回了 HTML（错误页面）
+    if (text.trim().startsWith('<') || !text.trim().startsWith('{')) {
+      console.error('Non-JSON response:', text);
+      throw new Error('服务器返回了错误页面，请检查部署配置');
+    }
+
+    const data = JSON.parse(text);
 
     console.log('API response:', data);
-
-    if (!response.ok) {
-      throw new Error(data.error || `分析失败 (${response.status})`);
-    }
 
     // 显示结果 - 使用 data.characters
     displayResults(data.characters || data);
