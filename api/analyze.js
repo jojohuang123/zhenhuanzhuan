@@ -116,25 +116,44 @@ export default async function handler(req, VercelResponse) {
     }
 
     const result = await response.json();
+    console.log('Doubao API response:', JSON.stringify(result).substring(0, 500));
 
     // 解析 AI 响应
     let analysisResult;
     try {
-      const content = result.choices?.[0]?.message?.content ||
-                      result.choices?.[0]?.content ||
-                      result.output?.text ||
-                      JSON.stringify(result);
+      // 尝试多种可能的响应格式
+      let content = '';
 
-      // 提取 JSON
+      // 各种可能的响应路径
+      if (result.choices && result.choices[0]) {
+        if (result.choices[0].message && result.choices[0].message.content) {
+          content = result.choices[0].message.content;
+        } else if (result.choices[0].content) {
+          content = result.choices[0].content;
+        } else if (result.choices[0].text) {
+          content = result.choices[0].text;
+        }
+      }
+
+      // 如果还是空，尝试整个结果转字符串
+      if (!content) {
+        content = JSON.stringify(result);
+      }
+
+      console.log('Extracted content:', content.substring(0, 300));
+
+      // 提取 JSON（查找 {...} 包围的内容）
       const jsonMatch = content.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
         analysisResult = JSON.parse(jsonMatch[0]);
+        console.log('Parsed JSON successfully');
       } else {
-        // 尝试解析整个响应
-        analysisResult = typeof content === 'string' ? JSON.parse(content) : content;
+        // 尝试直接解析整个 content
+        analysisResult = JSON.parse(content);
       }
     } catch (parseError) {
-      console.error('Parse error:', parseError, 'Raw result:', result);
+      console.error('Parse error:', parseError);
+      console.error('Raw result:', JSON.stringify(result).substring(0, 1000));
       // 返回模拟数据用于测试
       analysisResult = {
         characters: [
