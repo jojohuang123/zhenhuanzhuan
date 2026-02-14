@@ -109,13 +109,22 @@ export default async function handler(req, VercelResponse) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Doubao API error:', errorText);
+      console.error('Doubao API error:', response.status, errorText);
       return VercelResponse.status(500).json({
-        error: `AI 服务暂时不可用：${response.status}`
+        error: `AI 服务错误 (${response.status}): ${errorText.substring(0, 200)}`
       });
     }
 
     const result = await response.json();
+
+    // 检查是否有错误字段
+    if (result.error) {
+      console.error('Doubao API returned error:', result.error);
+      return VercelResponse.status(500).json({
+        error: `AI 服务错误: ${JSON.stringify(result.error).substring(0, 200)}`
+      });
+    }
+
     console.log('Doubao API response:', JSON.stringify(result).substring(0, 500));
 
     // 解析 AI 响应
@@ -175,8 +184,11 @@ export default async function handler(req, VercelResponse) {
     }));
 
     return VercelResponse.json({
+      success: true,
       characters: charactersWithAvatars,
-      rawResponse: result
+      debug: {
+        parsed: analysisResult
+      }
     });
 
   } catch (error) {

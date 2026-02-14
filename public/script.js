@@ -162,12 +162,14 @@ async function analyzeImages() {
 
     const data = await response.json();
 
+    console.log('API response:', data);
+
     if (!response.ok) {
-      throw new Error(data.error || '分析失败，请稍后重试');
+      throw new Error(data.error || `分析失败 (${response.status})`);
     }
 
-    // 显示结果
-    displayResults(data);
+    // 显示结果 - 使用 data.characters
+    displayResults(data.characters || data);
 
   } catch (error) {
     console.error('分析失败:', error);
