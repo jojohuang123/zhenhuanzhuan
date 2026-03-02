@@ -12,6 +12,7 @@ const resultsGrid = document.getElementById('resultsGrid');
 // ==================== 状态管理 ====================
 let selectedFiles = [];
 let uploadedImages = []; // 存储 base64 图片
+const uploadedImageSet = new Set(); // 用于快速检测重复
 
 // ==================== 事件监听 ====================
 // 点击上传
@@ -52,7 +53,7 @@ function handleFiles(files) {
   const maxFiles = 5;
   const maxSize = 10 * 1024 * 1024; // 10MB
 
-  Array.from(files).forEach((file, index) => {
+  Array.from(files).forEach((file) => {
     if (selectedFiles.length >= maxFiles) {
       showToast('最多只能上传 5 张照片');
       return;
@@ -74,13 +75,14 @@ function handleFiles(files) {
       const base64Data = e.target.result;
 
       // 检查是否重复上传
-      if (uploadedImages.includes(base64Data)) {
+      if (uploadedImageSet.has(base64Data)) {
         showToast('这张照片已经添加过了');
         return;
       }
 
       selectedFiles.push(file);
       uploadedImages.push(base64Data);
+      uploadedImageSet.add(base64Data);
       renderPreview(base64Data, selectedFiles.length - 1);
       updateUI();
     };
@@ -106,8 +108,10 @@ function renderPreview(base64Data, index) {
 }
 
 function removeImage(index) {
+  const removedImage = uploadedImages[index];
   selectedFiles.splice(index, 1);
   uploadedImages.splice(index, 1);
+  uploadedImageSet.delete(removedImage);
   renderAllPreviews();
   updateUI();
 }
@@ -122,6 +126,7 @@ function renderAllPreviews() {
 function clearAll() {
   selectedFiles = [];
   uploadedImages = [];
+  uploadedImageSet.clear();
   previewGrid.innerHTML = '';
   clearBtn.hidden = true;
   updateUI();
@@ -194,7 +199,8 @@ function displayResults(data) {
   resultSection.hidden = false;
   resultsGrid.innerHTML = '';
 
-  const characters = data.characters || [];
+  // data 直接是 characters 数组（由 analyzeImages 传入 data.characters）
+  const characters = Array.isArray(data) ? data : (data.characters || []);
 
   if (characters.length === 0) {
     resultsGrid.innerHTML = `
