@@ -137,7 +137,11 @@ export default async function handler(req, res) {
       }
     }
 
-    console.log('Calling Doubao API with', images.length, 'images');
+    // 从环境变量获取模型接入点 ID (Endpoint ID)
+    // 兼容用户截图中的中文变量名 "模型" 和标准的 "DOUBAO_MODEL"
+    const modelId = process.env.DOUBAO_MODEL || process.env['模型'] || 'doubao-seed-1-6-vision-250615';
+
+    console.log('Calling Doubao API with', images.length, 'images, using model:', modelId);
 
     // 使用标准 OpenAI-compatible chat/completions endpoint
     const response = await fetch('https://ark.cn-beijing.volces.com/api/v3/chat/completions', {
@@ -147,7 +151,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'doubao-seed-1-6-vision-250615',
+        model: modelId,
         messages: [
           {
             role: 'user',
